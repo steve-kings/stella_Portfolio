@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Annstellah Maina</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #1a4d4d;
+            --secondary-bg: #2d6a6a;
+            --dark-bg: #0d0d0d;
+            --peach-bg: #f4a261;
+            --light-peach: #ffd7ba;
+            --cream-bg: #f5e6d3;
+            --light-bg: #f5e6d3;
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e0;
+            --text-dark: #2a2a2a;
+            --accent-color: #e76f51;
+            --button-bg: #e76f51;
+            --button-hover: #d35f41;
+            --button-dark: #e76f51;
+            --nav-bg: #1a4d4d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: var(--nav-bg) !important;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-primary) !important;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-secondary) !important;
+            font-weight: 400;
+            margin: 0 1rem;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--text-primary) !important;
+        }
+
+        /* Hero Section */
+        .gallery-hero {
+            background: rgba(18, 18, 18, 0.92);
+            backdrop-filter: blur(15px);
+            padding: 4rem 0 3rem;
+            text-align: center;
+        }
+
+        .gallery-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .gallery-hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            background: var(--light-bg);
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .filter-btn {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: var(--text-dark);
+            padding: 0.6rem 1.5rem;
+            margin: 0 0.5rem 0.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--button-dark);
+            color: #ffffff;
+            border-color: var(--button-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Gallery Grid */
+        .gallery-section {
+            background-color: var(--light-bg);
+            padding: 4rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-content {
+            padding: 1.5rem;
+        }
+
+        .gallery-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            opacity: 0.7;
+        }
+
+        .gallery-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .gallery-description {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        .gallery-date {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .gallery-type {
+            background: rgba(42, 42, 42, 0.1);
+            padding: 0.2rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            background: #ffffff;
+            border-radius: 12px;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 10001;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-image {
+            width: 100%;
+            max-height: 60vh;
+            object-fit: cover;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .modal-info {
+            padding: 2rem;
+        }
+
+        .modal-info .gallery-category {
+            color: var(--text-dark);
+            opacity: 0.7;
+        }
+
+        .modal-info h3 {
+            color: var(--text-dark);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-info p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-info .gallery-meta {
+            color: #999;
+        }
+
+        .modal-info .gallery-type {
+            background: rgba(42, 42, 42, 0.1);
+            color: var(--text-dark);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(12, 12, 12, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 3rem 0 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Modern Hamburger Menu */
+        .navbar-toggler {
+            border: none;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            position: relative;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            display: none;
+        }
+
+        .hamburger {
+            width: 28px;
+            height: 3px;
+            background: var(--text-primary);
+            border-radius: 3px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 28px;
+            height: 3px;
+            background: var(--text-primary);
+            border-radius: 3px;
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        .hamburger::before {
+            top: -8px;
+        }
+
+        .hamburger::after {
+            top: 8px;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger {
+            background: transparent;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger::before {
+            transform: rotate(45deg);
+            top: 0;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger::after {
+            transform: rotate(-45deg);
+            top: 0;
+        }
+
+        /* Sidebar Navigation for Mobile */
+        .navbar-collapse {
+            background: transparent;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-nav {
+                display: none !important;
+            }
+
+            /* Full Screen Mobile Menu */
+            .navbar-collapse {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: linear-gradient(135deg, var(--peach-bg) 0%, var(--accent-color) 100%);
+                z-index: 999999;
+                transform: translateX(-100%);
+                transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                overflow-y: auto;
+            }
+
+            .navbar-collapse.show {
+                transform: translateX(0);
+            }
+
+            .navbar-collapse.show .navbar-nav {
+                display: flex !important;
+            }
+
+            /* Close Button */
+            .close-btn {
+                position: absolute;
+                top: 2rem;
+                right: 2rem;
+                background: transparent;
+                border: none;
+                color: white;
+                font-size: 2.5rem;
+                cursor: pointer;
+                width: 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                padding: 0;
+                z-index: 10;
+            }
+
+            .close-btn:hover {
+                transform: rotate(90deg);
+            }
+
+            .close-btn i {
+                font-size: 2rem;
+            }
+
+            /* Navigation Links */
+            .navbar-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                padding: 2rem 3rem;
+                margin: auto 0;
+            }
+
+            .navbar-nav .nav-link {
+                color: white !important;
+                font-weight: 400;
+                margin: 0;
+                padding: 1.2rem 0;
+                font-size: 2.5rem;
+                text-decoration: none;
+                border: none;
+                background: transparent;
+                transition: all 0.3s ease;
+                position: relative;
+                font-family: 'Inter', sans-serif;
+                letter-spacing: -1px;
+            }
+
+            .navbar-nav .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: 0.8rem;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: white;
+                transition: width 0.4s ease;
+            }
+
+            .navbar-nav .nav-link:hover::after,
+            .navbar-nav .nav-link.active::after {
+                width: 100%;
+            }
+
+            .navbar-nav .nav-link:hover {
+                transform: translateX(10px);
+                color: white !important;
+            }
+
+            /* Staggered Animation */
+            .nav-item {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            .navbar-collapse.show .nav-item {
+                animation: slideInMenu 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(1) {
+                animation-delay: 0.1s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(3) {
+                animation-delay: 0.3s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(4) {
+                animation-delay: 0.4s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(5) {
+                animation-delay: 0.5s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(6) {
+                animation-delay: 0.6s;
+            }
+
+            /* Mobile Menu Footer with Social Icons */
+            .mobile-menu-footer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 1.5rem 3rem 2rem;
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+            }
+
+            .mobile-menu-footer .social-icon {
+                width: 40px;
+                height: 40px;
+                border: 2px solid white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 1rem;
+                transition: all 0.3s ease;
+                opacity: 0;
+                text-decoration: none;
+            }
+
+            .navbar-collapse.show .mobile-menu-footer .social-icon {
+                animation: fadeInUp 0.6s ease forwards;
+            }
+
+            .mobile-menu-footer .social-icon:nth-child(1) {
+                animation-delay: 0.7s;
+            }
+
+            .mobile-menu-footer .social-icon:nth-child(2) {
+                animation-delay: 0.8s;
+            }
+
+            .mobile-menu-footer .social-icon:nth-child(3) {
+                animation-delay: 0.9s;
+            }
+
+            .mobile-menu-footer .social-icon:nth-child(4) {
+                animation-delay: 1s;
+            }
+
+            .mobile-menu-footer .social-icon:hover {
+                background: white;
+                color: var(--peach-bg);
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes slideInMenu {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInSidebar {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Hide close button on desktop */
+        @media (min-width: 992px) {
+            .close-btn {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .gallery-hero p {
+                font-size: 1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .gallery-section {
+                padding: 3rem 0;
+            }
+        }
+
+        /* Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .fade-in-up:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .fade-in-up:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .scroll-animate.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hide/Show Gallery Items */
+        .gallery-item.hidden {
+            display: none;
+        }
+
+        /* Sidebar Navigation for Mobile */
+        .navbar-collapse {
+            background: transparent;
+        }
+
+        @media (max-width: 991.98px) {
+
+            /* Hide desktop nav */
+            .navbar-nav {
+                display: none !important;
+            }
+
+            /* Full Screen Mobile Menu */
+            .navbar-collapse {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: linear-gradient(135deg, var(--peach-bg) 0%, var(--accent-color) 100%);
+                z-index: 999999;
+                transform: translateX(-100%);
+                transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                overflow-y: auto;
+            }
+
+            .navbar-collapse.show {
+                transform: translateX(0);
+            }
+
+            .navbar-collapse.show .navbar-nav {
+                display: flex !important;
+            }
+
+            /* Close Button */
+            .close-btn {
+                position: absolute;
+                top: 2rem;
+                right: 2rem;
+                background: transparent;
+                border: none;
+                color: white;
+                font-size: 2.5rem;
+                cursor: pointer;
+                width: 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                padding: 0;
+                z-index: 10;
+            }
+
+            .close-btn:hover {
+                transform: rotate(90deg);
+            }
+
+            .close-btn i {
+                font-size: 2rem;
+            }
+
+            /* Navigation Links */
+            .navbar-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                padding: 2rem 3rem;
+                margin: auto 0;
+            }
+
+            .navbar-nav .nav-link {
+                color: white !important;
+                font-weight: 400;
+                margin: 0;
+                padding: 1.2rem 0;
+                font-size: 2.5rem;
+                text-decoration: none;
+                border: none;
+                background: transparent;
+                transition: all 0.3s ease;
+                position: relative;
+                font-family: 'Inter', sans-serif;
+                letter-spacing: -1px;
+            }
+
+            .navbar-nav .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: 0.8rem;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: white;
+                transition: width 0.4s ease;
+            }
+
+            .navbar-nav .nav-link:hover::after,
+            .navbar-nav .nav-link.active::after {
+                width: 100%;
+            }
+
+            .navbar-nav .nav-link:hover {
+                transform: translateX(10px);
+                color: white !important;
+            }
+
+            /* Staggered Animation */
+            .nav-item {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            .navbar-collapse.show .nav-item {
+                animation: slideInMenu 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(1) {
+                animation-delay: 0.1s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(3) {
+                animation-delay: 0.3s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(4) {
+                animation-delay: 0.4s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(5) {
+                animation-delay: 0.5s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(6) {
+                animation-delay: 0.6s;
+            }
+
+            /* Mobile Menu Footer with Social Icons */
+            .mobile-menu-footer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 2rem 3rem 3rem;
+                display: flex;
+                gap: 1.5rem;
+            }
+
+            .mobile-menu-footer .social-icon {
+                width: 50px;
+                height: 50px;
+                border: 2px solid white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 1.3rem;
+                transition: all 0.3s ease;
+                opacity: 0;
+                text-decoration: none;
+            }
+
+            .navbar-collapse.show .mobile-menu-footer .social-icon {
+                animation: fadeInUp 0.6s ease forwards;
+            }
+
+            .mobile-menu-footer .social-icon:nth-child(1) {
+                animation-delay: 0.7s;
+            }
+
+            .mobile-menu-footer .social-icon:nth-child(2) {
+                animation-delay: 0.8s;
+            }
+
+            .mobile-menu-footer .social-icon:nth-child(3) {
+                animation-delay: 0.9s;
+            }
+
+            .mobile-menu-footer .social-icon:nth-child(4) {
+                animation-delay: 1s;
+            }
+
+            .mobile-menu-footer .social-icon:hover {
+                background: white;
+                color: var(--peach-bg);
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes slideInMenu {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Annstellah Maina</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="hamburger"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <button class="close-btn" onclick="closeSidebar()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="training.html">Training</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="speaking.html">Speaking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="newsletter.html">Newsletter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Gallery Hero Section -->
+    <section class="gallery-hero">
+        <div class="container">
+            <h1 class="fade-in-up">Portfolio</h1>
+            <p class="fade-in-up">8+ years of practical experience in financial services, specializing in implementation
+                of development finance projects across Sub-Saharan Africa. Certified Digital Finance Expert and Fintech
+                Entrepreneur with proven track record delivering results for European Commission, GIZ, KfW, US-PRM,
+                World Bank Group, UNCDF, Hilton Foundation, African Guarantee Fund and African Development Bank.
+            </p>
+        </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <section class="filter-tabs">
+        <div class="container">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="consulting">Consulting</button>
+            <button class="filter-btn" data-filter="fintech">Fintech</button>
+            <button class="filter-btn" data-filter="training">Training</button>
+            <button class="filter-btn" data-filter="research">Research</button>
+            <button class="filter-btn" data-filter="development">Development Finance</button>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid" id="galleryGrid">
+
+                <!-- Consulting Projects -->
+                <div class="gallery-item scroll-animate" data-category="consulting" onclick="openModal('project1')">
+                    <img src="/stella_Portfolio/images/IMG-20250822-WA0126.jpg" alt="SSATP Project">
+                    <div class="gallery-content">
+                        <div class="gallery-category">Consulting</div>
+                        <div class="gallery-title">Africa Transport Policy Program - Road Funds Baseline Survey</div>
+                        <div class="gallery-description">Data and Policy Consultant for TYPSA Group/SSATP. Leading
+                            baseline survey of African Road Funds with 50+ Board Directors across Sub-Saharan Africa.
+                        </div>
+                        <div class="gallery-meta">
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i>
+                                <span>2025 - Present</span>
+                            </div>
+                            <div class="gallery-type">World Bank</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item scroll-animate" data-category="consulting" onclick="openModal('project2')">
+                    <img src="/stella_Portfolio/images/IMG-20250826-WA0153.jpg" alt="DBSA ESMS">
+                    <div class="gallery-content">
+                        <div class="gallery-category">Consulting</div>
+                        <div class="gallery-title">ESMS Review for Development Bank of Southern Africa</div>
+                        <div class="gallery-description">Project Director for Frankfurt School. Led Environmental and
+                            Social Management System review and gap analysis for DBSA in Johannesburg.</div>
+                        <div class="gallery-meta">
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i>
+                                <span>2024</span>
+                            </div>
+                            <div class="gallery-type">KfW</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item scroll-animate" data-category="development" onclick="openModal('project3')">
+                    <img src="/stella_Portfolio/images/IMG-20250826-WA0154.jpg" alt="RIN Project">
+                    <div class="gallery-content">
+                        <div class="gallery-category">Development Finance</div>
+                        <div class="gallery-title">Refugee Lens Investing in Greater Horn of Africa</div>
+                        <div class="gallery-description">Senior Associate at Refugee Investment Network. Led $800K
+                            project expanding refugee economic inclusion across Kenya, Uganda, and Ethiopia.</div>
+                        <div class="gallery-meta">
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i>
+                                <span>2023 - 2024</span>
+                            </div>
+                            <div class="gallery-type">Hilton Foundation</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item scroll-animate" data-category="research" onclick="openModal('project4')">
+                    <img src="/stella_Portfolio/images/bbc2025e94ea4e308fbb0e05d99874e0.jpg" alt="REAP Study">
+                    <div class="gallery-content">
+                        <div class="gallery-category">Research</div>
+                        <div class="gallery-title">Refugee Employment Advancement Program Feasibility Study</div>
+                        <div class="gallery-description">Research Analyst for World Bank-funded project. Conducted
+                            outcome-based funding feasibility research in Kenya and Ethiopia.</div>
+                        <div class="gallery-meta">
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i>
+                                <span>2023</span>
+                            </div>
+                            <div class="gallery-type">World Bank</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Training Projects -->
+                <div class="gallery-item scroll-animate" data-category="training" onclick="openModal('project5')">
+                    <img src="/stella_Portfolio/images/IMG-20250826-WA0153.jpg" alt="ESO360 Program">
+                    <div class="gallery-content">
+                        <div class="gallery-category">Training</div>
+                        <div class="gallery-title">ESO360 Capacity Building Program</div>
+                        <div class="gallery-description">Trainer and Project Director for AfDB-funded program. Trained
+                            40+ ESOs and startups across 6 African countries on digital finance and investment.</div>
+                        <div class="gallery-meta">
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i>
+                                <span>2022 - 2023</span>
+                            </div>
+                            <div class="gallery-type">AfDB</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item scroll-animate" data-category="training" onclick="openModal('project6')">
+                    <img src="/stella_Portfolio/images/IMG-20250826-WA0154.jpg" alt="Green API">
+                    <div class="gallery-content">
+                        <div class="gallery-category">Training</div>
+                        <div class="gallery-title">Green API - Smart Agriculture Program</div>
+                        <div class="gallery-description">Project Director for GIZ-funded initiative. Coached 40 Agritech
+                            startups in 5 countries on business modeling and digital partnerships.</div>
+                        <div class="gallery-meta">
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i>
+                                <span>2023</span>
+                            </div>
+                            <div class="gallery-type">GIZ</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fintech Projects -->
+                <div class="gallery-item scroll-animate" data-category="fintech" onclick="openModal('project7')">
+                    <img src="/stella_Portfolio/images/IMG-20250826-WA0155.jpg" alt="Akwaya">
+                    <div class="gallery-content">
+                        <div class="gallery-category">Fintech</div>
+                        <div class="gallery-title">Akwaya Limited - Pan-African Payments</div>
+                        <div class="gallery-description">Founder and CEO. Built payment processing and remittance
+                            platform for global merchants. Successfully exited to angel investor in 2022.</div>
+                        <div class="gallery-meta">
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i>
+                                <span>2021 - 2022</span>
+                            </div>
+                            <div class="gallery-type">Startup</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item scroll-animate" data-category="fintech" onclick="openModal('project8')">
+                    <img src="/stella_Portfolio/images/IMG-20250822-WA0126.jpg" alt="Flocash">
+                    <div class="gallery-content">
+                        <div class="gallery-category">Fintech</div>
+                        <div class="gallery-title">Flocash - Payment Gateway Solutions</div>
+                        <div class="gallery-description">Senior Project Manager. Led deployment of payment systems for 6
+                            African airlines and launched Ethiopia's first contactless MasterCard.</div>
+                        <div class="gallery-meta">
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i>
+                                <span>2018 - 2021</span>
+                            </div>
+                            <div class="gallery-type">Fintech</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item scroll-animate" data-category="fintech" onclick="openModal('project9')">
+                    <img src="/stella_Portfolio/images/IMG-20250826-WA0153.jpg" alt="Flomart">
+                    <div class="gallery-content">
+                        <div class="gallery-category">Fintech</div>
+                        <div class="gallery-title">Flomart - Bill Payment & eCommerce App</div>
+                        <div class="gallery-description">Business model conceptualization and construction. Achieved
+                            1000+ downloads within first month of launching in Addis Ababa, Ethiopia.</div>
+                        <div class="gallery-meta">
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i>
+                                <span>2020</span>
+                            </div>
+                            <div class="gallery-type">Mobile App</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Development Finance -->
+                <div class="gallery-item scroll-animate" data-category="development" onclick="openModal('project10')">
+                    <img src="/stella_Portfolio/images/IMG-20250826-WA0154.jpg" alt="Mozambique">
+                    <div class="gallery-content">
+                        <div class="gallery-category">Development Finance</div>
+                        <div class="gallery-title">Agricultural Finance for Mozambique MSMEs</div>
+                        <div class="gallery-description">Technical Bid Writer for Frankfurt School. Secured KfW
+                            project supporting Bank of Mozambique with credit lines for Agri-MSMEs.</div>
+                        <div class="gallery-meta">
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i>
+                                <span>2024</span>
+                            </div>
+                            <div class="gallery-type">KfW</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item scroll-animate" data-category="development" onclick="openModal('project11')">
+                    <img src="/stella_Portfolio/images/bbc2025e94ea4e308fbb0e05d99874e0.jpg" alt="Uganda">
+                    <div class="gallery-content">
+                        <div class="gallery-category">Development Finance</div>
+                        <div class="gallery-title">Uganda Development Bank Agricultural Finance</div>
+                        <div class="gallery-description">Technical Bid Writer. Secured KfW project providing
+                            consulting services to improve access to agricultural finance in Uganda.</div>
+                        <div class="gallery-meta">
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i>
+                                <span>2024</span>
+                            </div>
+                            <div class="gallery-type">KfW</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item scroll-animate" data-category="research" onclick="openModal('project12')">
+                    <img src="/stella_Portfolio/images/IMG-20250826-WA0155.jpg" alt="Policy Roadmaps">
+                    <div class="gallery-content">
+                        <div class="gallery-category">Research</div>
+                        <div class="gallery-title">IGAD Policy Action Roadmaps for Refugee Economic Inclusion</div>
+                        <div class="gallery-description">Co-created policy roadmaps for Kenya, Uganda, and Ethiopia.
+                            Presented at Global Refugee Forum 2023 in Geneva.</div>
+                        <div class="gallery-meta">
+                            <div class="gallery-date">
+                                <i class="far fa-calendar"></i>
+                                <span>2023</span>
+                            </div>
+                            <div class="gallery-type">Policy</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <img class="modal-image" id="modalImage" src="" alt="">
+            <div class="modal-info">
+                <div class="gallery-category" id="modalCategory"></div>
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+                <div class="gallery-meta">
+                    <div class="gallery-date">
+                        <i class="far fa-calendar"></i>
+                        <span id="modalDate"></span>
+                    </div>
+                    <div class="gallery-type" id="modalType"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/annstellah-wanjiru-maina?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                    target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://substack.com/@muitherandu" target="_blank" class="social-icon"
+                    title="Substack Newsletter">
+                    <i class="fas fa-newspaper"></i>
+                </a>
+                <a href="mailto:annstellahwanjiru@gmail.com" class="social-icon">
+                    <i class="far fa-envelope"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                <p>&copy;2025 Annstellah Maina - All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Close sidebar function
+        function closeSidebar() {
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+
+            navbarCollapse.classList.remove('show');
+            navbarToggler.setAttribute('aria-expanded', 'false');
+            navbarToggler.classList.add('collapsed');
+        }
+
+        // Close sidebar when clicking outside or on nav links
+        document.addEventListener('click', function (e) {
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+
+            if (navbarCollapse.classList.contains('show') &&
+                !navbarCollapse.contains(e.target) &&
+                !navbarToggler.contains(e.target)) {
+                closeSidebar();
+            }
+
+            if (e.target.classList.contains('nav-link')) {
+                closeSidebar();
+            }
+        });
+
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Modal functionality
+        const modalData = {
+            project1: {
+                image: '/stella_Portfolio/images/IMG-20250822-WA0126.jpg',
+                category: 'Consulting',
+                title: 'Africa Transport Policy Program - Road Funds Baseline Survey',
+                description: 'Data and Policy Consultant for TYPSA Group/SSATP working on a World Bank and European Commission-funded project. Coordinated and presented project inception results at kick-off workshop in Nairobi with 50+ Road Fund Board Directors from across Sub-Saharan Africa. Leading design and implementation of data collection, validation and analysis tools, developing quantitative and qualitative instruments, and co-authoring policy document defining characteristics of "next-generation road funds".',
+                date: 'August 2025 - Present',
+                type: 'World Bank'
+            },
+            project2: {
+                image: '/stella_Portfolio/images/IMG-20250826-WA0153.jpg',
+                category: 'Consulting',
+                title: 'ESMS Review for Development Bank of Southern Africa',
+                description: 'Project Director and Backstopper for Frankfurt School on a KfW-funded project. Organized and chaired project kick-off workshop with all stakeholders at DBSA headquarters in Johannesburg, South Africa. Reviewed DBSA\'s Environmental and Social Management System policy to identify gaps and align with KfW Sustainability Guidelines. Leading contract management, project supervision, quality control and approval of all outputs and reports.',
+                date: 'April 2024 - Present',
+                type: 'KfW'
+            },
+            project3: {
+                image: '/stella_Portfolio/images/IMG-20250826-WA0154.jpg',
+                category: 'Development Finance',
+                title: 'Refugee Lens Investing in Greater Horn of Africa',
+                description: 'Senior Associate at Refugee Investment Network leading a Hilton Foundation/Acumen-funded project. Led day-to-day planning and execution with multiple partners, spearheaded partnerships with impact investors and social entrepreneurs, conducted due diligence for Refugee Investment Fund recipients. Championed collaboration with IGAD to host National Consultations on Kampala Declaration in Kenya, Uganda and Ethiopia. Represented RIN at Global Refugee Forum 2023 in Geneva.',
+                date: 'June 2023 - March 2024',
+                type: 'Hilton Foundation'
+            },
+            project4: {
+                image: '/stella_Portfolio/images/bbc2025e94ea4e308fbb0e05d99874e0.jpg',
+                category: 'Research',
+                title: 'Refugee Employment Advancement Program Feasibility Study',
+                description: 'Research Analyst and Project Backstopper for World Bank-funded project. Organized kick-off meeting and developed research design. Conducted desk research on existing outcome funding models for refugee initiatives in Global South. Collected qualitative data through consultations and focused group discussions with government officials, NGOs and private enterprises in Kenya and Ethiopia. Prepared diagnostic and design report for outcome funds and financing mechanisms.',
+                date: '2023',
+                type: 'World Bank'
+            },
+            project5: {
+                image: '/stella_Portfolio/images/IMG-20250826-WA0153.jpg',
+                category: 'Training',
+                title: 'ESO360 Capacity Building Program',
+                description: 'Trainer and Project Director for Frankfurt School on an AfDB-funded project in partnership with VC4A and Hub Collective. Successfully trained and coached over 40 ESOs (incubators, accelerators, fund managers) and startups in South Africa, Cote d\'Ivoire, Egypt, Ghana, Kenya, and Nigeria on leveraging digital financial services, investment funding, mentorship, and human resource management.',
+                date: '2022 - 2023',
+                type: 'AfDB'
+            },
+            project6: {
+                image: '/stella_Portfolio/images/IMG-20250826-WA0154.jpg',
+                category: 'Training',
+                title: 'Green API - Smart Agriculture Program',
+                description: 'Project Director and Backstopper for Frankfurt School on a GIZ-funded project in partnership with VC4A. Successfully trained and coached 40 Agritech startups in Senegal, Botswana, Cote D\'Ivoire, Nigeria and Ghana on business modelling, technical interoperability, strategy and sustainability, and legal compliance. Program aims to support scaling of digital innovations through partnerships with Orange.',
+                date: '2023',
+                type: 'GIZ'
+            },
+            project7: {
+                image: '/stella_Portfolio/images/IMG-20250826-WA0155.jpg',
+                category: 'Fintech',
+                title: 'Akwaya Limited - Pan-African Payments',
+                description: 'Founder and CEO of Pan-African payments company providing payment processing and remittance services for global, regional, and local merchants. Pioneered company setup including incorporation, business accounts, office location, and trading license. Formulated company vision, goals and objectives. Recruited and managed team of 5 employees. Successfully led company acquisition process and deal closing with angel investor for 100% equity in February 2022.',
+                date: 'March 2021 - February 2022',
+                type: 'Startup Exit'
+            },
+            project8: {
+                image: '/stella_Portfolio/images/IMG-20250822-WA0126.jpg',
+                category: 'Fintech',
+                title: 'Flocash - Payment Gateway Solutions',
+                description: 'Senior Project Manager / Head of Project Management at Flocash, a leading UK-based Fintech provider. Delivered payment gateway solutions using agile methodologies. Spearheaded Go-live of 6 African airlines including Ethiopian Airlines, Rwandair, TAAG Angola, Asky Airlines, Air Cote D\'Ivoire, and Air Burkina. Led project management and partnerships with Zemen Bank and MasterCard to develop Ethiopia\'s first contactless Platinum MasterCard Prepaid Travel Card launched in 2021.',
+                date: 'October 2018 - February 2021',
+                type: 'Fintech'
+            },
+            project9: {
+                image: '/stella_Portfolio/images/IMG-20250826-WA0153.jpg',
+                category: 'Fintech',
+                title: 'Flomart - Bill Payment & eCommerce App',
+                description: 'Business model conceptualization and construction for Flomart, a bill payment and eCommerce mobile application. Achieved over 1000 downloads within the first month of launching in Addis Ababa, Ethiopia in early 2020. Contributed to website and mobile application design and prototyping using Figma.',
+                date: '2020',
+                type: 'Mobile App'
+            },
+            project10: {
+                image: '/stella_Portfolio/images/IMG-20250826-WA0154.jpg',
+                category: 'Development Finance',
+                title: 'Agricultural Finance for Mozambique MSMEs',
+                description: 'Technical Bid Writer for Frankfurt School. Successfully secured KfW-funded project to support Bank of Mozambique and its partners with credit lines for Agri-MSMEs, alongside capacity building and environmental/social management. Project focuses on improving access to agricultural finance for micro, small and medium enterprises in Mozambique.',
+                date: '2024',
+                type: 'KfW'
+            },
+            project11: {
+                image: '/stella_Portfolio/images/bbc2025e94ea4e308fbb0e05d99874e0.jpg',
+                category: 'Development Finance',
+                title: 'Uganda Development Bank Agricultural Finance',
+                description: 'Technical Bid Writer for Frankfurt School. Successfully secured KfW-funded project providing consulting services to Uganda Development Bank and its partners. Project focuses on improving access to agricultural finance for farmers and agribusinesses in Uganda through credit lines and capacity building initiatives.',
+                date: '2024',
+                type: 'KfW'
+            },
+            project12: {
+                image: '/stella_Portfolio/images/IMG-20250826-WA0155.jpg',
+                category: 'Research',
+                title: 'IGAD Policy Action Roadmaps for Refugee Economic Inclusion',
+                description: 'Co-created with Intergovernmental Authority on Development (IGAD), Policy Action Roadmaps for Kenya, Uganda and Ethiopia, outlining strategies to enhance private sector engagement and improve the economic landscape for refugees and host communities. The summary report was presented at the Global Refugee Forum 2023 in Geneva, Switzerland.',
+                date: '2023',
+                type: 'Policy Research'
+            }
+        };
+
+        function openModal(itemId) {
+            const data = modalData[itemId];
+            if (!data) return;
+
+            document.getElementById('modalImage').src = data.image;
+            document.getElementById('modalCategory').textContent = data.category;
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalDescription').textContent = data.description;
+            document.getElementById('modalDate').textContent = data.date;
+            document.getElementById('modalType').textContent = data.type;
+
+            document.getElementById('modalOverlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('modalOverlay').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>

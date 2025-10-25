@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Annstellah Maina</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #1a4d4d;
+            --secondary-bg: #2d6a6a;
+            --dark-bg: #0d0d0d;
+            --peach-bg: #f4a261;
+            --light-peach: #ffd7ba;
+            --cream-bg: #f5e6d3;
+            --light-bg: #f5e6d3;
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e0;
+            --text-dark: #2a2a2a;
+            --accent-color: #e76f51;
+            --button-bg: #e76f51;
+            --button-hover: #d35f41;
+            --button-dark: #e76f51;
+            --nav-bg: #1a4d4d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: var(--nav-bg) !important;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-primary) !important;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-secondary) !important;
+            font-weight: 400;
+            margin: 0 1rem;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--text-primary) !important;
+        }
+
+        /* Hero Section */
+        .training-hero {
+            background: rgba(18, 18, 18, 0.92);
+            backdrop-filter: blur(15px);
+            padding: 4rem 0 3rem;
+            text-align: center;
+        }
+
+        .training-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .training-hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .request-btn {
+            background-color: var(--button-bg);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.8rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .request-btn:hover {
+            background-color: var(--button-hover);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .hero-image-section {
+            margin-top: 3rem;
+        }
+
+        .hero-image-section img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            object-fit: cover;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Content Cards Section */
+        .content-section {
+            background-color: var(--light-bg);
+            padding: 5rem 0;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .content-card {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .content-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .card-btn {
+            background-color: var(--button-dark);
+            color: var(--text-primary);
+            border: none;
+            padding: 0.7rem 1.8rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .card-btn:hover {
+            background-color: #3a3a3a;
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Contact Form Section */
+        .contact-form-section {
+            background: rgba(18, 18, 18, 0.92);
+            backdrop-filter: blur(15px);
+            padding: 5rem 0;
+        }
+
+        .contact-form-section h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 3rem;
+            letter-spacing: 1px;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.3);
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .checkbox-group label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .checkbox-item {
+            margin-bottom: 0.8rem;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 0.8rem;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            cursor: pointer;
+            display: inline;
+        }
+
+        .submit-btn {
+            background-color: var(--button-bg);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.9rem 3rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--button-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(12, 12, 12, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 3rem 0 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Modern Hamburger Menu */
+        .navbar-toggler {
+            border: none;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            position: relative;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            display: none;
+        }
+
+        .hamburger {
+            width: 28px;
+            height: 3px;
+            background: var(--text-primary);
+            border-radius: 3px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 28px;
+            height: 3px;
+            background: var(--text-primary);
+            border-radius: 3px;
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        .hamburger::before {
+            top: -8px;
+        }
+
+        .hamburger::after {
+            top: 8px;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger {
+            background: transparent;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger::before {
+            transform: rotate(45deg);
+            top: 0;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .hamburger::after {
+            transform: rotate(-45deg);
+            top: 0;
+        }
+
+        /* Sidebar Navigation for Mobile */
+        .navbar-collapse {
+            background: transparent;
+        }
+
+        @media (max-width: 991.98px) {
+
+            /* Hide desktop nav */
+            .navbar-nav {
+                display: none !important;
+            }
+
+            /* Full Screen Mobile Menu */
+            .navbar-collapse {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: linear-gradient(135deg, var(--peach-bg) 0%, var(--accent-color) 100%);
+                z-index: 999999;
+                transform: translateX(-100%);
+                transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                overflow-y: auto;
+            }
+
+            .navbar-collapse.show {
+                transform: translateX(0);
+            }
+
+            .navbar-collapse.show .navbar-nav {
+                display: flex !important;
+            }
+
+            /* Close Button */
+            .close-btn {
+                position: absolute;
+                top: 2rem;
+                right: 2rem;
+                background: transparent;
+                border: none;
+                color: white;
+                font-size: 2.5rem;
+                cursor: pointer;
+                width: 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                padding: 0;
+                z-index: 10;
+            }
+
+            .close-btn:hover {
+                transform: rotate(90deg);
+            }
+
+            .close-btn i {
+                font-size: 2rem;
+            }
+
+            /* Navigation Links */
+            .navbar-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                padding: 2rem 3rem;
+                margin: auto 0;
+            }
+
+            .navbar-nav .nav-link {
+                color: white !important;
+                font-weight: 400;
+                margin: 0;
+                padding: 1.2rem 0;
+                font-size: 2.5rem;
+                text-decoration: none;
+                border: none;
+                background: transparent;
+                transition: all 0.3s ease;
+                position: relative;
+                font-family: 'Inter', sans-serif;
+                letter-spacing: -1px;
+            }
+
+            .navbar-nav .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: 0.8rem;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: white;
+                transition: width 0.4s ease;
+            }
+
+            .navbar-nav .nav-link:hover::after,
+            .navbar-nav .nav-link.active::after {
+                width: 100%;
+            }
+
+            .navbar-nav .nav-link:hover {
+                transform: translateX(10px);
+                color: white !important;
+            }
+
+            /* Staggered Animation */
+            .nav-item {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            .navbar-collapse.show .nav-item {
+                animation: slideInMenu 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(1) {
+                animation-delay: 0.1s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(3) {
+                animation-delay: 0.3s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(4) {
+                animation-delay: 0.4s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(5) {
+                animation-delay: 0.5s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(6) {
+                animation-delay: 0.6s;
+            }
+
+            /* Mobile Menu Footer with Social Icons */
+            .mobile-menu-footer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 1.5rem 3rem 2rem;
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+            }
+
+            .mobile-menu-footer .social-icon {
+                width: 40px;
+                height: 40px;
+                border: 2px solid white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 1rem;
+                transition: all 0.3s ease;
+                opacity: 0;
+                text-decoration: none;
+            }
+
+            .navbar-collapse.show .mobile-menu-footer .social-icon {
+                animation: fadeInUp 0.6s ease forwards;
+            }
+
+            .mobile-menu-footer .social-icon:nth-child(1) {
+                animation-delay: 0.7s;
+            }
+
+            .mobile-menu-footer .social-icon:nth-child(2) {
+                animation-delay: 0.8s;
+            }
+
+            .mobile-menu-footer .social-icon:nth-child(3) {
+                animation-delay: 0.9s;
+            }
+
+            .mobile-menu-footer .social-icon:nth-child(4) {
+                animation-delay: 1s;
+            }
+
+            .mobile-menu-footer .social-icon:hover {
+                background: white;
+                color: var(--peach-bg);
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes slideInMenu {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInSidebar {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Hide close button on desktop */
+        @media (min-width: 992px) {
+            .close-btn {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .training-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .training-hero p {
+                font-size: 1rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-section,
+            .contact-form-section {
+                padding: 3rem 0;
+            }
+        }
+
+        /* Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .fade-in-up:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .fade-in-up:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .fade-in-up:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .scroll-animate.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Sidebar Navigation for Mobile */
+        .navbar-collapse {
+            background: transparent;
+        }
+
+        @media (max-width: 991.98px) {
+
+            /* Hide desktop nav */
+            .navbar-nav {
+                display: none !important;
+            }
+
+            /* Full Screen Mobile Menu */
+            .navbar-collapse {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: linear-gradient(135deg, var(--peach-bg) 0%, var(--accent-color) 100%);
+                z-index: 999999;
+                transform: translateX(-100%);
+                transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                overflow-y: auto;
+            }
+
+            .navbar-collapse.show {
+                transform: translateX(0);
+            }
+
+            .navbar-collapse.show .navbar-nav {
+                display: flex !important;
+            }
+
+            /* Close Button */
+            .close-btn {
+                position: absolute;
+                top: 2rem;
+                right: 2rem;
+                background: transparent;
+                border: none;
+                color: white;
+                font-size: 2.5rem;
+                cursor: pointer;
+                width: 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                padding: 0;
+                z-index: 10;
+            }
+
+            .close-btn:hover {
+                transform: rotate(90deg);
+            }
+
+            .close-btn i {
+                font-size: 2rem;
+            }
+
+            /* Navigation Links */
+            .navbar-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                padding: 2rem 3rem;
+                margin: auto 0;
+            }
+
+            .navbar-nav .nav-link {
+                color: white !important;
+                font-weight: 400;
+                margin: 0;
+                padding: 1.2rem 0;
+                font-size: 2.5rem;
+                text-decoration: none;
+                border: none;
+                background: transparent;
+                transition: all 0.3s ease;
+                position: relative;
+                font-family: 'Inter', sans-serif;
+                letter-spacing: -1px;
+            }
+
+            .navbar-nav .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: 0.8rem;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: white;
+                transition: width 0.4s ease;
+            }
+
+            .navbar-nav .nav-link:hover::after,
+            .navbar-nav .nav-link.active::after {
+                width: 100%;
+            }
+
+            .navbar-nav .nav-link:hover {
+                transform: translateX(10px);
+                color: white !important;
+            }
+
+            /* Staggered Animation */
+            .nav-item {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            .navbar-collapse.show .nav-item {
+                animation: slideInMenu 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(1) {
+                animation-delay: 0.1s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(3) {
+                animation-delay: 0.3s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(4) {
+                animation-delay: 0.4s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(5) {
+                animation-delay: 0.5s;
+            }
+
+            .navbar-collapse.show .nav-item:nth-child(6) {
+                animation-delay: 0.6s;
+            }
+
+            /* Mobile Menu Footer with Social Icons */
+            .mobile-menu-footer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 2rem 3rem 3rem;
+                display: flex;
+                gap: 1.5rem;
+            }
+
+            .mobile-menu-footer .social-icon {
+                width: 50px;
+                height: 50px;
+                border: 2px solid white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 1.3rem;
+                transition: all 0.3s ease;
+                opacity: 0;
+                text-decoration: none;
+            }
+
+            .navbar-collapse.show .mobile-menu-footer .social-icon {
+                animation: fadeInUp 0.6s ease forwards;
+            }
+
+            .mobile-menu-footer .social-icon:nth-child(1) {
+                animation-delay: 0.7s;
+            }
+
+            .mobile-menu-footer .social-icon:nth-child(2) {
+                animation-delay: 0.8s;
+            }
+
+            .mobile-menu-footer .social-icon:nth-child(3) {
+                animation-delay: 0.9s;
+            }
+
+            .mobile-menu-footer .social-icon:nth-child(4) {
+                animation-delay: 1s;
+            }
+
+            .mobile-menu-footer .social-icon:hover {
+                background: white;
+                color: var(--peach-bg);
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes slideInMenu {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Annstellah Maina</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="hamburger"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <button class="close-btn" onclick="closeSidebar()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="training.html">Training</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="speaking.html">Speaking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="newsletter.html">Newsletter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Training Hero Section -->
+    <section class="training-hero">
+        <div class="container">
+            <h1 class="fade-in-up">Training</h1>
+            <p class="fade-in-up">Transform how your organization thinks, collaborates, and performs through the science
+                of human cognitive diversity. Sessions are available both in-person and remotely via Zoom/Skype, or
+                through an internal delivery.</p>
+            <button class="request-btn fade-in-up" onclick="scrollToForm()">Request Info</button>
+        </div>
+    </section>
+
+    <!-- Content Cards Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="card-grid">
+                <div class="content-card scroll-animate">
+                    <h3>Speaking to Different Thinkers</h3>
+                    <p>Effective communication is not universal - it is responsive. This program explores fundamental
+                        differences in how individuals process information, organize ideas, and interpret language,
+                        giving participants a framework to adapt their communication style to cognitive diversity. Ideal
+                        for managers, team leads, educators, and client-facing professionals seeking more resonant,
+                        inclusive dialogue.</p>
+                    <a href="contact.html" class="card-btn">Find out more</a>
+                </div>
+
+                <div class="content-card scroll-animate">
+                    <h3>Cognitive Diversity in Teams</h3>
+                    <p>High-performing teams are cognitively diverse. But without a shared language for that diversity,
+                        differences become friction. This training introduces applied frameworks for mapping cognitive
+                        styles, recognizing complementary strengths, and reducing misalignment. Suitable for leadership
+                        teams, cross-functional groups, and organizations scaling culture across distributed or hybrid
+                        environments.</p>
+                    <a href="contact.html" class="card-btn">Find out more</a>
+                </div>
+
+                <div class="content-card scroll-animate">
+                    <h3>The Spectrums of Empathy</h3>
+                    <p>We do not all empathize in the same way. Some feel deeply, others analyze; some respond with
+                        immediacy, others with structure. This session maps the cognitive architecture of empathy and
+                        offers practical tools for understanding - and working with - different forms of relational
+                        intelligence. Essential for caregivers, HR professionals, therapists, and anyone navigating
+                        emotionally complex systems.</p>
+                    <a href="contact.html" class="card-btn">Find out more</a>
+                </div>
+
+                <div class="content-card scroll-animate">
+                    <h3>Developing 'Interocular' Thinking</h3>
+                    <p>Our thoughts are not neutral - they are shaped by cognitive biases, processing preferences, and
+                        invisible mental routines. This program builds capacity for metacognitive awareness, helping
+                        participants observe their own thinking patterns, question inherited mental models, and
+                        cultivate more flexible, context-sensitive reasoning. Ideal for strategists, innovators,
+                        researchers, and leaders managing ambiguity or complexity.</p>
+                    <a href="contact.html" class="card-btn">Find out more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section" id="contact">
+        <div class="container">
+            <h2>Find out more</h2>
+            <div class="form-container">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name (required)</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="surname">Surname</label>
+                        <input type="text" id="surname" name="surname" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email (required)</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <label>What interests you most? (select one or more)</label>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="training" name="interests" value="training">
+                            <label for="training">In-person or remote training</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="speaking" name="interests" value="speaking">
+                            <label for="speaking">Speaking for my event</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="empathy" name="interests" value="empathy">
+                            <label for="empathy">The Spectrums of Empathy</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="thinking" name="interests" value="thinking">
+                            <label for="thinking">Developing 'Interocular' Thinking</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message (optional)</label>
+                        <textarea id="message" name="message" class="form-control"
+                            placeholder="Tell us more about your needs..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/annstellah-wanjiru-maina?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                    target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://substack.com/@muitherandu" target="_blank" class="social-icon"
+                    title="Substack Newsletter">
+                    <i class="fas fa-newspaper"></i>
+                </a>
+                <a href="mailto:annstellahwanjiru@gmail.com" class="social-icon">
+                    <i class="far fa-envelope"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                <p>&copy;2025 Annstellah Maina - All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Close sidebar function
+        function closeSidebar() {
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+
+            navbarCollapse.classList.remove('show');
+            navbarToggler.setAttribute('aria-expanded', 'false');
+            navbarToggler.classList.add('collapsed');
+        }
+
+        // Close sidebar when clicking outside or on nav links
+        document.addEventListener('click', function (e) {
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+
+            if (navbarCollapse.classList.contains('show') &&
+                !navbarCollapse.contains(e.target) &&
+                !navbarToggler.contains(e.target)) {
+                closeSidebar();
+            }
+
+            if (e.target.classList.contains('nav-link')) {
+                closeSidebar();
+            }
+        });
+
+        // Scroll to form function
+        function scrollToForm() {
+            const formSection = document.getElementById('contact');
+            formSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Create custom modal for success message
+            const modal = document.createElement('div');
+            modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 10000;';
+
+            modal.innerHTML = `
+                <div style="background: #fff; padding: 3rem; border-radius: 8px; max-width: 500px; text-align: center; margin: 1rem;">
+                    <div style="font-size: 3rem; color: #4CAF50; margin-bottom: 1rem;">✓</div>
+                    <h3 style="color: #2a2a2a; margin-bottom: 1rem;">Thank you for your interest!</h3>
+                    <p style="color: #666; margin-bottom: 2rem;">Your message has been received. We'll get back to you shortly.</p>
+                    <button onclick="this.closest('div[style*=fixed]').remove()" style="background: #2a2a2a; color: white; border: none; padding: 0.8rem 2rem; border-radius: 4px; cursor: pointer; font-size: 1rem;">Close</button>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>
